@@ -16,6 +16,7 @@
                 </div>
                 <form action="{{ path('login') }}" method="post"
                       class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
 
                     <div class="card-body">
