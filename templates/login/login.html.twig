@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter{% endblock %}
+
+{% block body %}
+    <main class="w-full bg-base-200">
+        <div class="container mx-auto hero min-h-screen">
+            <div class="flex-col justify-center hero-content gap-12 lg:flex-row">
+                <div class="text-center lg:text-left">
+                    <h1 class="mb-5 text-5xl font-bold">
+                        Se connecter
+                    </h1>
+                    <p class="mb-5">
+                        Connecte-toi pour pouvoir toi aussi candidater à un lundi Ouistiti !
+                    </p>
+                </div>
+                <form action="{{ path('login') }}" method="post"
+                      class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+
+
+                    <div class="card-body">
+                        {% if error %}
+                            <div class="alert alert-error mb-2">
+                                <div class="flex-1">
+                                    <label>{{ error.messageKey|trans(error.messageData, 'security') }}</label>
+                                </div>
+                            </div>
+                        {% endif %}
+
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Email</span>
+                            </label>
+                            <input type="text" placeholder="email" name="_username" class="input input-bordered">
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Mot de passe</span>
+                            </label>
+                            <input type="text" placeholder="mot de passe" name="_password" class="input input-bordered">
+                        </div>
+                        <div class="mt-6 flex gap-4 justify-between">
+                            <div class="form-control flex-1">
+                                <input type="button" value="Inscription" class="btn btn-secondart">
+                            </div>
+                            <div class="form-control flex-1">
+                                <input type="submit" value="Connexion" class="btn btn-primary">
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}

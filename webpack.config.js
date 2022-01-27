@@ -1,4 +1,5 @@
 const Encore = require('@symfony/webpack-encore');
+const chokidar = require('chokidar')
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -71,6 +72,15 @@ Encore
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
     .enablePostCssLoader()
+
+    .copyFiles({
+        from: './assets/img',
+        to: 'img/[path][name].[hash:8].[ext]',
+    })
+
+    .configureDevServerOptions(options => {
+        options.liveReload = true
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();
