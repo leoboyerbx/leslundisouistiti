@@ -4,8 +4,12 @@
         "@symfony/stimulus-bridge": "^3.0.0",
         "@symfony/webpack-encore": "^1.7.0",
         "@types/express": "^4.17.13",
+        "autoprefixer": "^10.4.2",
         "core-js": "^3.0.0",
+        "postcss": "^8.4.5",
+        "postcss-loader": "^6.2.1",
         "regenerator-runtime": "^0.13.2",
+        "tailwindcss": "^3.0.17",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
@@ -15,5 +19,8 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "daisyui": "^1.25.4"
     }
 }
