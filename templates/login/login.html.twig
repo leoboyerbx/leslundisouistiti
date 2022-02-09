@@ -11,7 +11,7 @@
                         Se connecter
                     </h1>
                     <p class="mb-5">
-                        Connecte-toi pour pouvoir toi aussi candidater à un lundi Ouistiti !
+                        Connecte-toi à ton compte
                     </p>
                 </div>
                 <form action="{{ path('login') }}" method="post"
@@ -42,7 +42,7 @@
                         </div>
                         <div class="mt-6 flex gap-4 justify-between">
                             <div class="form-control flex-1">
-                                <input type="button" value="Inscription" class="btn btn-secondart">
+                                <a href="{{ path('app_register') }}"  class="btn btn-secondary">Inscription</a>
                             </div>
                             <div class="form-control flex-1">
                                 <input type="submit" value="Connexion" class="btn btn-primary">

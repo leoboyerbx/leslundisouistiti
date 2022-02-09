@@ -1,17 +1,76 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Register{% endblock %}
+{% form_theme registrationForm 'form/theme.html.twig' %}
 
 {% block body %}
-    <h1>Register</h1>
+    <main class="w-full bg-base-200">
+        <div class="container mx-auto hero min-h-screen">
+            <div class="flex-col justify-center hero-content gap-12 lg:flex-row">
+                <div class="text-center lg:text-left">
+                    <h1 class="mb-5 text-5xl font-bold">
+                        Inscription
+                    </h1>
+                    <p class="mb-5">
+                        Inscris-toi pour pouvoir toi aussi candidater à un lundi Ouistiti !
+                    </p>
+                </div>{{ form_start(registrationForm, {
+                    attr: {class: 'card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100'}
+                }) }}
+                <div class="card-body">
+                    {{ form_row(registrationForm.username,{
+                        label: 'Pseudo'
+                    } ) }}
+                    {{ form_row(registrationForm.email) }}
+                    {{ form_row(registrationForm.plainPassword, {
+                        label: 'Mot de passe'
+                    }) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+                    <div class="mt-6 flex gap-4 justify-between">
+                        <div class="form-control flex-1">
+                            <a href="{{ path('login') }}" class="btn btn-secondary">Connexion</a>
+                        </div>
+                        <div class="form-control flex-1">
+                            <button type="submit" class="btn btn-primary">S'inscrire</button>
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(registrationForm) }}
+                {#                <form action="{{ path('login') }}" method="post" #}
+                {#                      class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"> #}
+                {#                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"> #}
+                {#                    <div class="card-body"> #}
+                {#                        {% if error %} #}
+                {#                            <div class="alert alert-error mb-2"> #}
+                {#                                <div class="flex-1"> #}
+                {#                                    <label>{{ error.messageKey|trans(error.messageData, 'security') }}</label> #}
+                {#                                </div> #}
+                {#                            </div> #}
+                {#                        {% endif %} #}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+                {#                        <div class="form-control"> #}
+                {#                            <label class="label"> #}
+                {#                                <span class="label-text">Email</span> #}
+                {#                            </label> #}
+                {#                            <input type="text" placeholder="email" name="_username" class="input input-bordered"> #}
+                {#                        </div> #}
+                {#                        <div class="form-control"> #}
+                {#                            <label class="label"> #}
+                {#                                <span class="label-text">Mot de passe</span> #}
+                {#                            </label> #}
+                {#                            <input type="text" placeholder="mot de passe" name="_password" class="input input-bordered"> #}
+                {#                        </div> #}
+                {#                        <div class="mt-6 flex gap-4 justify-between"> #}
+                {#                            <div class="form-control flex-1"> #}
+                {#                                <a href="{{ path('app_register') }}"  class="btn btn-secondary">Inscription</a> #}
+                {#                            </div> #}
+                {#                            <div class="form-control flex-1"> #}
+                {#                                <input type="submit" value="Connexion" class="btn btn-primary"> #}
+                {#                            </div> #}
+
+                {#                        </div> #}
+                {#                    </div> #}
+                {#                </form> #}
+            </div>
+        </div>
+    </main>
 {% endblock %}
