@@ -25,9 +25,9 @@
                         label: 'Mot de passe'
                     }) }}
 
-                    <div class="mt-6 flex gap-4 justify-between">
+                    <div class="mt-6 flex gap-4 justify-between items-center">
                         <div class="form-control flex-1">
-                            <a href="{{ path('login') }}" class="btn btn-secondary">Connexion</a>
+                            <a href="{{ path('login') }}" class="text-sm underline text-gray-500">Retour à la connexion</a>
                         </div>
                         <div class="form-control flex-1">
                             <button type="submit" class="btn btn-primary">S'inscrire</button>
@@ -35,41 +35,6 @@
                     </div>
                 </div>
                 {{ form_end(registrationForm) }}
-                {#                <form action="{{ path('login') }}" method="post" #}
-                {#                      class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100"> #}
-                {#                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"> #}
-                {#                    <div class="card-body"> #}
-                {#                        {% if error %} #}
-                {#                            <div class="alert alert-error mb-2"> #}
-                {#                                <div class="flex-1"> #}
-                {#                                    <label>{{ error.messageKey|trans(error.messageData, 'security') }}</label> #}
-                {#                                </div> #}
-                {#                            </div> #}
-                {#                        {% endif %} #}
-
-                {#                        <div class="form-control"> #}
-                {#                            <label class="label"> #}
-                {#                                <span class="label-text">Email</span> #}
-                {#                            </label> #}
-                {#                            <input type="text" placeholder="email" name="_username" class="input input-bordered"> #}
-                {#                        </div> #}
-                {#                        <div class="form-control"> #}
-                {#                            <label class="label"> #}
-                {#                                <span class="label-text">Mot de passe</span> #}
-                {#                            </label> #}
-                {#                            <input type="text" placeholder="mot de passe" name="_password" class="input input-bordered"> #}
-                {#                        </div> #}
-                {#                        <div class="mt-6 flex gap-4 justify-between"> #}
-                {#                            <div class="form-control flex-1"> #}
-                {#                                <a href="{{ path('app_register') }}"  class="btn btn-secondary">Inscription</a> #}
-                {#                            </div> #}
-                {#                            <div class="form-control flex-1"> #}
-                {#                                <input type="submit" value="Connexion" class="btn btn-primary"> #}
-                {#                            </div> #}
-
-                {#                        </div> #}
-                {#                    </div> #}
-                {#                </form> #}
             </div>
         </div>
     </main>
