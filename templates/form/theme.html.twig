@@ -10,6 +10,11 @@
     {% set widget_errors_class = 'bg-red-400'    %}
     {{ parent() }}
 {% endblock %}
+{% block email_widget %}
+    {% set widget_class = widget_class|default('input input-bordered') %}
+    {% set widget_errors_class = 'bg-red-400'    %}
+    {{ parent() }}
+{% endblock %}
 
 {%- block checkbox_widget -%}
     {%- set widget_class = widget_class|default('checkbox checkbox-primary') -%}

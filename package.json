@@ -1,7 +1,12 @@
 {
     "devDependencies": {
         "@hotwired/stimulus": "^3.0.0",
+        "@swup/debug-plugin": "^1.0",
+        "@swup/fade-theme": "^1.0",
+        "@swup/forms-plugin": "^1.0",
+        "@swup/slide-theme": "^1.0",
         "@symfony/stimulus-bridge": "^3.0.0",
+        "@symfony/ux-swup": "file:vendor/symfony/ux-swup/Resources/assets",
         "@symfony/webpack-encore": "^1.7.0",
         "@types/express": "^4.17.13",
         "autoprefixer": "^10.4.2",
@@ -11,6 +16,7 @@
         "postcss": "^8.4.5",
         "postcss-loader": "^6.2.1",
         "regenerator-runtime": "^0.13.2",
+        "swup": "^2.0",
         "tailwindcss": "^3.0.17",
         "webpack-notifier": "^1.6.0"
     },

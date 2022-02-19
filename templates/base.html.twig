@@ -13,7 +13,14 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body data-theme="dark">
+    <body data-theme="dark"
+            {{ stimulus_controller('symfony/ux-swup/swup', {
+                containers: ['#swup']
+            }) }}
+    >
+    {% include 'components/header.html.twig' %}
+    <main id="swup">
         {% block body %}{% endblock %}
+    </main>
     </body>
 </html>

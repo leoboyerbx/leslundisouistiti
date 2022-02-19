@@ -2,7 +2,12 @@ lockfileVersion: 5.3
 
 specifiers:
   '@hotwired/stimulus': ^3.0.0
+  '@swup/debug-plugin': ^1.0
+  '@swup/fade-theme': ^1.0
+  '@swup/forms-plugin': ^1.0
+  '@swup/slide-theme': ^1.0
   '@symfony/stimulus-bridge': ^3.0.0
+  '@symfony/ux-swup': file:vendor/symfony/ux-swup/Resources/assets
   '@symfony/webpack-encore': ^1.7.0
   '@types/express': ^4.17.13
   autoprefixer: ^10.4.2
@@ -13,6 +18,7 @@ specifiers:
   postcss: ^8.4.5
   postcss-loader: ^6.2.1
   regenerator-runtime: ^0.13.2
+  swup: ^2.0
   tailwindcss: ^3.0.17
   webpack-notifier: ^1.6.0
 
@@ -21,7 +27,12 @@ dependencies:
 
 devDependencies:
   '@hotwired/stimulus': 3.0.1
+  '@swup/debug-plugin': 1.0.3
+  '@swup/fade-theme': 1.0.5
+  '@swup/forms-plugin': 1.1.1
+  '@swup/slide-theme': 1.0.5
   '@symfony/stimulus-bridge': 3.0.0_@hotwired+stimulus@3.0.1
+  '@symfony/ux-swup': link:vendor/symfony/ux-swup/Resources/assets
   '@symfony/webpack-encore': 1.8.1_@types+express@4.17.13
   '@types/express': 4.17.13
   autoprefixer: 10.4.2_postcss@8.4.5
@@ -31,6 +42,7 @@ devDependencies:
   postcss: 8.4.5
   postcss-loader: 6.2.1_postcss@8.4.5
   regenerator-runtime: 0.13.9
+  swup: 2.0.14
   tailwindcss: 3.0.17_ef48b3b8837f8a23677bffe8f9cd866d
   webpack-notifier: 1.15.0
 
@@ -1210,6 +1222,40 @@ packages:
       error-stack-parser: 2.0.6
       string-width: 4.2.3
       webpack: 5.67.0_webpack-cli@4.9.2
+    dev: true
+
+  /@swup/debug-plugin/1.0.3:
+    resolution: {integrity: sha512-uSGrrI0Z4yLvUIYUNAzOGFgotJgjdXPGYCZ/WVGUdkBUWO8rWfSkDi+qCp2V8AdPGFc9TNq8bcR4zO0FPJ+C5g==}
+    dependencies:
+      '@swup/plugin': 1.0.1
+    dev: true
+
+  /@swup/fade-theme/1.0.5:
+    resolution: {integrity: sha512-9PwC7UmW0RZ5eda+JtWz0z0H3kWWW4Ir3fnEnQOLwdS5p+nrvrLGQM3WjUR/kFIuAsU6K40Ty99gtoW6spWYSA==}
+    dependencies:
+      '@swup/theme': 1.0.7
+    dev: true
+
+  /@swup/forms-plugin/1.1.1:
+    resolution: {integrity: sha512-XtzDN61Icpgxgv4NsZ8pOf7NyCGkchs0/sEYzYHwwwVihN+p/DCgJoSp/6in17nLKCsT3SuNEMgrKkiPYaX3CQ==}
+    dependencies:
+      '@swup/plugin': 1.0.1
+      delegate: 3.2.0
+      swup: 2.0.14
+    dev: true
+
+  /@swup/plugin/1.0.1:
+    resolution: {integrity: sha512-QrTGn1DLx+50CNsk6oGzUFnyNyLkDK6iLb032qKImmAXS+0Dd1cwa8cSGvJ+I27J4qR8y6oJNurgHIEc6ZCTrg==}
+    dev: true
+
+  /@swup/slide-theme/1.0.5:
+    resolution: {integrity: sha512-0xxqtURSMDScjLMRdNjtxzo8NGCPcmp6VXrQcxIQzQDSAvwNnP8Zw871C+FSL1EMe8OhAzWAP3E3x9vzH+iLHg==}
+    dependencies:
+      '@swup/theme': 1.0.7
+    dev: true
+
+  /@swup/theme/1.0.7:
+    resolution: {integrity: sha512-OINEaf34fYs90l7/YUUKfOf+paY7/FDhOBLwYxrD0w1OjBiItZpw3N+ATA/QklJwmoUu3KkDFOaQG0zT4KxmmA==}
     dev: true
 
   /@symfony/stimulus-bridge/3.0.0_@hotwired+stimulus@3.0.1:
@@ -2464,6 +2510,14 @@ packages:
       p-map: 4.0.0
       rimraf: 3.0.2
       slash: 3.0.0
+    dev: true
+
+  /delegate/3.1.3:
+    resolution: {integrity: sha1-moJRp3fXAl+qVXN7w7BxdCEnqf0=}
+    dev: true
+
+  /delegate/3.2.0:
+    resolution: {integrity: sha512-IofjkYBZaZivn0V8nnsMJGBr4jVLxHDheKSW88PyxS5QC4Vo9ZbZVvhzlSxY87fVq3STR6r+4cGepyHkcWOQSw==}
     dev: true
 
   /depd/1.1.2:
@@ -3728,6 +3782,11 @@ packages:
       is-wsl: 2.2.0
     dev: true
 
+  /opencollective-postinstall/2.0.3:
+    resolution: {integrity: sha512-8AV/sCtuzUeTo8gQK5qDZzARrulB3egtLzFgteqB2tcT4Mw7B8Kt7JcDHmltjz6FOAHsvTevk70gZEbhM4ZS9Q==}
+    hasBin: true
+    dev: true
+
   /p-limit/2.3.0:
     resolution: {integrity: sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w==}
     engines: {node: '>=6'}
@@ -4920,6 +4979,14 @@ packages:
       csso: 4.2.0
       picocolors: 1.0.0
       stable: 0.1.8
+    dev: true
+
+  /swup/2.0.14:
+    resolution: {integrity: sha512-a+Ihye+rTOwyW7T/vJYwGEKy9kJwc4twwlBryoKZY6WNutQOdpWUKmCkJdvkrDNIqBAvIqpsGUW1NJvoxZxP8w==}
+    requiresBuild: true
+    dependencies:
+      delegate: 3.1.3
+      opencollective-postinstall: 2.0.3
     dev: true
 
   /sync-rpc/1.3.6:
