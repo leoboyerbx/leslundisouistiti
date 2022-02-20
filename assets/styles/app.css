@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.swup-transition-main {
+    transition-duration: 0.2s;
+}

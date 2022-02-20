@@ -1,0 +1,5 @@
+<a href="{{ path(toRoute) }}"
+   class="{{ app.request.get('_route') == toRoute ? 'bg-base-100' : '' }}"
+>
+    <i class="fas {{ icon }} mr-2"></i> {{ title }}
+</a>
