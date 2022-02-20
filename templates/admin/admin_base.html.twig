@@ -3,9 +3,22 @@
 {% block title %}Les lundis ouistiti !{% endblock %}
 
 {% block body %}
-    <div class="container mx-auto mt-32">
-        Yo c'est l'admin
-
-        {% block admin_page %}{% endblock %}
+    <div class="w-full min-h-screen pt-16 flex-grow flex flex-col">
+        <div class="flex-grow drawer drawer-mobile w-full">
+            <input id="my-drawer-2" type="checkbox" class="drawer-toggle">
+            <div class="flex flex-col items-center justify-center drawer-content relative">
+                <!-- Page content here -->
+                <label for="my-drawer-2" class="btn drawer-button lg:hidden absolute top-4 left-4"><i class="fas fa-bars"></i></label>
+                {% block admin_page %}{% endblock %}
+            </div>
+            <div class="drawer-side bg-base-200">
+                <label for="my-drawer-2" class="drawer-overlay">Open drawer</label>
+                <ul class="menu p-4 overflow-y-auto w-80 bg-base-200 text-base-content">
+                    <!-- Sidebar content here -->
+                    <li><a>Sidebar Item 1</a></li>
+                    <li><a>Sidebar Item 2</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 {% endblock %}
