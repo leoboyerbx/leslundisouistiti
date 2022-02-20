@@ -27,6 +27,13 @@
                                 </div>
                             </div>
                         {% endif %}
+                        {% for message in app.flashes('error') %}
+                            <div class="alert alert-error mb-2">
+                                <div class="flex-1">
+                                    {{ message }}
+                                </div>
+                            </div>
+                        {% endfor %}
 
                         <div class="form-control">
                             <label class="label">
@@ -38,12 +45,14 @@
                             <label class="label">
                                 <span class="label-text">Mot de passe</span>
                             </label>
-                            <input type="password" placeholder="mot de passe" name="_password" class="input input-bordered">
+                            <input type="password" placeholder="mot de passe" name="_password"
+                                   class="input input-bordered">
                         </div>
-                        <a href="{{ path('app_forgot_password_request') }}" class="text-sm text-accent underline mt-5">Mot de passe oublié ?</a>
+                        <a href="{{ path('app_forgot_password_request') }}" class="text-sm text-accent underline mt-5">Mot
+                            de passe oublié ?</a>
                         <div class="mt-6 flex gap-4 justify-between">
                             <div class="form-control flex-1">
-                                <a href="{{ path('app_register') }}"  class="btn btn-neutral">Inscription</a>
+                                <a href="{{ path('app_register') }}" class="btn btn-neutral">Inscription</a>
                             </div>
                             <div class="form-control flex-1">
                                 <input type="submit" value="Connexion" class="btn btn-primary">
