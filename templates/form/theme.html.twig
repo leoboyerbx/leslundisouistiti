@@ -15,6 +15,21 @@
     {% set widget_errors_class = 'bg-red-400'    %}
     {{ parent() }}
 {% endblock %}
+{% block choice_widget %}
+    {% set widget_class = widget_class|default('select select-bordered') %}
+    {% set widget_errors_class = 'ring-red-400' %}
+    {{ parent() }}
+{% endblock %}
+{% block number_widget %}
+    {% set widget_class = widget_class|default('input input-bordered') %}
+    {% set widget_errors_class = 'bg-red-400'    %}
+    {{ parent() }}
+{% endblock %}
+{% block integer_widget %}
+    {% set widget_class = widget_class|default('input input-bordered') %}
+    {% set widget_errors_class = 'bg-red-400'    %}
+    {{ parent() }}
+{% endblock %}
 
 {%- block checkbox_widget -%}
     {%- set widget_class = widget_class|default('checkbox checkbox-primary') -%}
