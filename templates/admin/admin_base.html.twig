@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Les lundis ouistiti !{% endblock %}
-
+{% block body_class %}overflow-hidden{% endblock %}
 {% block body %}
-    <div class="w-full min-h-screen pt-16 flex-grow flex flex-col">
+    <div class="w-full pt-16 h-screen flex-grow flex flex-col">
         <div class="flex-grow drawer drawer-mobile w-full">
             <input id="my-drawer-2" type="checkbox" class="drawer-toggle">
             <div class="drawer-content relative">
@@ -23,9 +23,9 @@
                             title: 'Dashboard'
                         }) }}</li>
                     <li>{{ include('components/admin-link.twig', {
-                            toRoute: 'admin_dates',
+                            toRoute: 'admin_event_index',
                             icon: 'fa-calendar-day',
-                            title: 'Dates'
+                            title: 'Événements'
                         }) }}</li>
                 </ul>
             </div>

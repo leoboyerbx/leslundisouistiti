@@ -1,0 +1,6 @@
+<form method="post" class="inline-block" action="{{ path('admin_event_delete', {'id': event.id}) }}" onsubmit="return confirm('Supprimer l\'événement ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ event.id) }}">
+    <button class="btn btn-error btn-sm text-white">
+        <i class="fas fa-trash"></i>
+    </button>
+</form>

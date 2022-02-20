@@ -5,3 +5,13 @@
 .swup-transition-main {
     transition-duration: 0.2s;
 }
+.mask-up {
+}
+.mask-up::before {
+    content: '';
+    @apply bg-base-100 h-4;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+}

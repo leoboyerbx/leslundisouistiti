@@ -20,6 +20,7 @@
             {{ stimulus_controller('symfony/ux-swup/swup', {
                 containers: ['#swup'],
             }) }}
+            class="{% block body_class %}{% endblock %}"
     >
     {% include 'components/header.html.twig' %}
     <main id="swup" class="flex flex-col">
