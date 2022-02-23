@@ -29,7 +29,9 @@
 
     <h2 class="text-3xl font-bold">Les prochains événements</h2>
     <section class="flex flex-col">
-        Hey
+        {% for event in events %}
+        {{ event.title  }}
+        {% endfor %}
     </section>
 </div>
 {% endblock %}

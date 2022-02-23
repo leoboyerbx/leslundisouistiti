@@ -24,6 +24,9 @@ class Event
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: Application::class)]
     private $applications;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $title;
+
     public function __construct()
     {
         $this->applications = new ArrayCollection();
@@ -84,6 +87,21 @@ class Event
                 $application->setEvent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        if ($this->title) {
+            return $this->title;
+        }
+        return 'Lundi ouistiti du ' . $this->getDate()->format('d F Y');
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
 
         return $this;
     }
