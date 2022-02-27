@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'form/theme.html.twig' %}
+
+{% block body %}
+
+<div class="container mx-auto my-16">
+    <h1 class="text-3xl font-bold">Candidater à un lundi ouistiti</h1>
+    <p class="italic">Tu candidates pour l'événement suivant: "{{ event.title }}" le
+        {{ event.date|date('d M Y') }}.</p>
+
+    <section class="mt-8">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn mt-4">{{ button_label|default('Candidater !') }}</button>
+        {{ form_end(form) }}
+    </section>
+</div>
+{% endblock %}

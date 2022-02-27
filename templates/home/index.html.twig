@@ -28,9 +28,19 @@
     {% endfor %}
 
     <h2 class="text-3xl font-bold">Les prochains événements</h2>
-    <section class="flex flex-col">
+    <section class="flex flex-col gap-8 py-8">
         {% for event in events %}
-        {{ event.title  }}
+            <div class="card w-full bg-base-100 shadow-2xl">
+                <div class="card-body">
+                    <h2 class="card-title">{{ event.title  }}</h2>
+                    <p>
+                        {{ event.date|date('d M Y') }}
+                    </p>
+                    <div class="justify-end card-actions">
+                        <a href="{{ path('apply', {'event_id': event.id}) }}" class="btn btn-primary">Candidater</a>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
     </section>
 </div>

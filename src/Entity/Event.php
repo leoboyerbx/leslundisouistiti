@@ -96,7 +96,8 @@ class Event
         if ($this->title) {
             return $this->title;
         }
-        return 'Lundi ouistiti du ' . $this->getDate()->format('d F Y');
+        $date = $this->getDate() ?? new \DateTime();
+        return 'Lundi ouistiti du ' . $date->format('d F Y');
     }
 
     public function setTitle(string $title): self

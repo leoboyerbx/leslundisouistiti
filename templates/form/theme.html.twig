@@ -10,6 +10,11 @@
     {% set widget_errors_class = 'bg-red-400'    %}
     {{ parent() }}
 {% endblock %}
+{%- block textarea_widget -%}
+    {% set widget_class = widget_class|default('input input-bordered') %}
+    {% set widget_errors_class = 'bg-red-400'    %}
+    {{ parent() }}
+{% endblock %}
 
 {% block form_widget_simple %}
     {% set widget_class = widget_class|default('input input-bordered') %}
