@@ -3,28 +3,63 @@
 {% block title %}Event{% endblock %}
 
 {% block admin_page %}
-    <h1>Event</h1>
+    <header class="flex gap-4">
+        <a href="{{ path('admin_event_index') }}" class="btn btn-sm"><i class="fas fa-chevron-left mr-2"></i><i
+                    class="fas fa-list"></i></a>
+        <h1 class="text-2xl font-bold">{{ event.title }}</h1>
+
+        <div class="flex gap-2">
+
+            <a href="{{ path('admin_event_edit', {'id': event.id}) }}" class="btn btn-sm btn-accent"><i
+                        class="fas fa-pen-to-square"></i></a>
+
+            {{ include('admin/event/_delete_form.html.twig') }}
+
+        </div>
+    </header>
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ event.id }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ event.date ? event.date|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Seats</th>
-                <td>{{ event.seats }}</td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ event.id }}</td>
+        </tr>
+        <tr>
+            <th>Date</th>
+            <td>{{ event.date ? event.date|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Places</th>
+            <td>{{ event.seats }}</td>
+        </tr>
         </tbody>
     </table>
-
-    <a href="{{ path('admin_event_index') }}">back to list</a>
-
-    <a href="{{ path('admin_event_edit', {'id': event.id}) }}">edit</a>
-
-    {{ include('admin/event/_delete_form.html.twig') }}
+    <h2 class="mt-4 text-xl font-bold">Candidatures</h2>
+    <section class="flex flex-col gap-4">
+        {% for application in event.applications %}
+            <div class="card w-full bg-base-100 shadow-2xl">
+                <div class="card-body flex flex-row items-center">
+                    <div class="flex flex-col flex-grow">
+                        <h2 class="card-title">{{ application.user.username }}</h2>
+                        <p>
+                            {{ application.text }}
+                        </p>
+                    </div>
+                    <div class="badge badge mr-2 {{ application.status == 'accepted' ? 'badge-success' : '' }}{{ application.status == 'rejected' ? 'badge-error' : '' }}">{{ application.status }}</div>
+                    <div class="flex gap-1">
+                        {% if application.status != 'accepted' %}
+                            <div class="tooltip" data-tip="Accepter">
+                                {{ include('admin/event/_application_status_form.html.twig', {status: 'accepted'}) }}
+                            </div>
+                        {% endif %}
+                        {% if application.status != 'rejected' %}
+                            <div class="tooltip" data-tip="Refuser">
+                            {{ include('admin/event/_application_status_form.html.twig', {status: 'rejected'}) }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
 {% endblock %}

@@ -1,0 +1,7 @@
+<form method="post" class="inline-block" action="{{ path('admin_event_status_application', {'id': application.id}) }}" onsubmit="return confirm('{{ status == 'accepted' ? 'Accepter' : '' }} {{ status == 'rejected' ? 'Refuser' : '' }} la candidature ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('accept_application' ~ application.id) }}">
+    <input type="hidden" name="status" value="{{ status }}">
+    <button class="btn btn-sm text-white {{ status == 'accepted' ? 'btn-success' : '' }} {{ status == 'rejected' ? 'btn-error' : '' }}">
+        <i class="fas {{ status == 'accepted' ? 'fa-check' : '' }} {{ status == 'rejected' ? 'fa-times' : '' }}"></i>
+    </button>
+</form>

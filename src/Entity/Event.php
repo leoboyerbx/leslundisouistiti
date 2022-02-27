@@ -91,6 +91,10 @@ class Event
         return $this;
     }
 
+    public function getApplicationsCount() {
+        return count($this->getApplications());
+    }
+
     public function getTitle(): ?string
     {
         if ($this->title) {

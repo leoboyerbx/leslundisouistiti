@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Application;
 use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventRepository;
@@ -77,5 +78,16 @@ class AdminEventController extends AbstractController
         }
 
         return $this->redirectToRoute('admin_event_index', [], Response::HTTP_SEE_OTHER);
+    }
+    #[Route('/aplication_status/{id}', name: 'admin_event_status_application', methods: ['POST'])]
+    public function acceptApplication(Request $request, Application $application, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('accept_application'.$application->getId(), $request->request->get('_token'))) {
+            $application->setStatus($request->request->get('status'));
+            $entityManager->persist($application);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('admin_event_show', ['id' => $application->getEvent()->getId()], Response::HTTP_SEE_OTHER);
     }
 }

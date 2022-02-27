@@ -12,7 +12,7 @@
         <table class="table w-full mb-12">
             <thead class="sticky top-4 mask-up">
             <tr>
-                <th>Id</th>
+                <th>Titre</th>
                 <th>Date</th>
                 <th>Places</th>
                 <th>actions</th>
@@ -21,7 +21,8 @@
             <tbody>
             {% for event in events %}
                 <tr>
-                    <td>{{ event.id }}</td>
+                    <td>{{ event.title }}
+                        <div class="badge badge-secondary ml-2">{{ event.applicationsCount }}</div></td>
                     <td>{{ event.date ? event.date|date('Y-m-d') : '' }}</td>
                     <td>{{ event.seats }}</td>
                     <td class="flex gap-1">
