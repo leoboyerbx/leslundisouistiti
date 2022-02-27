@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Repository\ApplicationRepository;
 use App\Repository\EventRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -67,6 +68,15 @@ class Event
     public function getApplications(): Collection
     {
         return $this->applications;
+    }
+
+    public function getParticipants() {
+        $applications = array_filter($this->getApplications()->toArray(), function($application) {
+            return $application->getStatus() === 'accepted';
+        });
+        return array_map(function($application) {
+            return $application->getUser();
+        }, $applications);
     }
 
     public function addApplication(Application $application): self
