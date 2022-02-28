@@ -1,0 +1,7 @@
+\App\Entity\SiteOption:
+  title:
+    optionName: 'site_title'
+    optionValue: 'Les lundis ouistiti'
+  description:
+    optionName: 'site_description '
+    optionValue: 'On rigole bien autour de bonnes bières'

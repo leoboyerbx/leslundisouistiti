@@ -33,9 +33,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 63)]
     private $username;
 
-    #[ORM\Column(type: 'text', nullable: true)]
-    private $bio;
-
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Application::class, orphanRemoval: true)]
     private $applications;
 
