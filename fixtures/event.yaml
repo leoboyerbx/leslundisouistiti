@@ -1,1 +1,6 @@
+App\Entity\Event:
+  event_{1..20}:
+    date: <dateTimeBetween('-1 week', '+9 months')>
+    seats: 4
+    title: <sentence()>
 

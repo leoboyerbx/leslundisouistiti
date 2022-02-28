@@ -1,0 +1,7 @@
+App\Entity\Application:
+  application_{1..40}:
+    user: "@user_*"
+    event: "@event_*"
+    text: <paragraph()>
+    status: <randomStatus()>
+

@@ -5,7 +5,11 @@ App\Entity\User:
     password: <encodePassword('pass')>
     roles:
       - ROLE_ADMIN
-  user_{1..10}:
+  user_1:
+    email: user@user.com
+    username: user
+    password: <encodePassword('pass')>
+  user_{2..10}:
     email: <email()>
     username: <username()>
     password: <encodePassword('pass')>

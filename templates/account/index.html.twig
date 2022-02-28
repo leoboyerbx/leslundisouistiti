@@ -16,12 +16,13 @@
             <div class="card w-full bg-base-100 shadow-2xl">
                 <div class="card-body flex flex-row items-center">
                     <div class="flex flex-col flex-grow">
-                        <h2 class="card-title">{{ application.user }}</h2>
+                        <h2 class="card-title">{{ application.event.title }}</h2>
+                        <span class="italic mb-4">{{ application.event.date|date('Y-m-d') }}</span>
                         <p>
                             {{ application.text }}
                         </p>
                     </div>
-                    <div class="badge badge mr-2 {{ application.status == 'accepted' ? 'badge-success' : '' }}{{ application.status == 'rejected' ? 'badge-error' : '' }}">{{ application.statusText }}</div>
+                    <div class="badge badge w-32 flex-shrink-0 ml-4 {{ application.status == 'accepted' ? 'badge-success' : '' }}{{ application.status == 'rejected' ? 'badge-error' : '' }}">{{ application.statusText }}</div>
                 </div>
             </div>
         {% endfor %}
