@@ -16,21 +16,15 @@
             <div class="drawer-side bg-base-200">
                 <label for="my-drawer-2" class="drawer-overlay">Open drawer</label>
                 <ul class="menu p-4 overflow-y-auto w-80 bg-base-200 text-base-content flex flex-col gap-2">
-                    <!-- Sidebar content here -->
                     <li>{{ include('components/admin-link.twig', {
                             toRoute: 'admin_dashboard',
-                            icon: 'fa-gauge-high',
-                            title: 'Dashboard'
+                            icon: 'fa-cog',
+                            title: 'Options'
                         }) }}</li>
                     <li>{{ include('components/admin-link.twig', {
                             toRoute: 'admin_event_index',
                             icon: 'fa-calendar-day',
                             title: 'Événements'
-                        }) }}</li>
-                    <li>{{ include('components/admin-link.twig', {
-                            toRoute: 'admin_event_index',
-                            icon: 'fa-cog',
-                            title: 'Options'
                         }) }}</li>
                 </ul>
             </div>

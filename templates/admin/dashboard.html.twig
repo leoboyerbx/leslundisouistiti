@@ -1,8 +1,9 @@
 {% extends 'admin/admin_base.html.twig' %}
 {% block admin_page %}
-    Le dashboard avec:
-    <ul>
-        <li>Prochaines dates</li>
-        <li>Candiatures en attente</li>
-    </ul>
+    <h1 class="text-3xl font-bold">Options du site</h1>
+    {% form_theme form 'form/theme.html.twig' %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn mt-2">{{ button_label|default('Enregistrer') }}</button>
+    {{ form_end(form) }}
 {% endblock %}

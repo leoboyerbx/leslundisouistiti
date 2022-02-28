@@ -3,9 +3,10 @@
 {% block title %}New Event{% endblock %}
 
 {% block admin_page %}
-    <h1>Create new Event</h1>
-
+    <header class="flex gap-4">
+        <a href="{{ path('admin_event_index') }}" class="btn btn-sm"><i class="fas fa-chevron-left mr-2"></i><i
+                    class="fas fa-list"></i></a>
+        <h1 class="text-2xl font-bold">Nouvel événement</h1>
+    </header>
     {{ include('admin/event/_form.html.twig') }}
-
-    <a href="{{ path('admin_event_index') }}">back to list</a>
 {% endblock %}
