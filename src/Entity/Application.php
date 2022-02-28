@@ -79,4 +79,12 @@ class Application
 
         return $this;
     }
+    public function getStatusText() {
+        return match ($this->status) {
+            'pending' => 'En attente',
+            'accepted' => 'Acceptée',
+            'rejected' => 'Refusée',
+            default => '',
+        };
+    }
 }

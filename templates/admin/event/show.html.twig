@@ -45,7 +45,7 @@
                             {{ application.text }}
                         </p>
                     </div>
-                    <div class="badge badge mr-2 {{ application.status == 'accepted' ? 'badge-success' : '' }}{{ application.status == 'rejected' ? 'badge-error' : '' }}">{{ application.status }}</div>
+                    <div class="badge badge mr-2 {{ application.status == 'accepted' ? 'badge-success' : '' }}{{ application.status == 'rejected' ? 'badge-error' : '' }}">{{ application.statusText }}</div>
                     <div class="flex gap-1">
                         {% if application.status != 'accepted' %}
                             <div class="tooltip" data-tip="Accepter">

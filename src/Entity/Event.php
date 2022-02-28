@@ -71,8 +71,15 @@ class Event
     }
 
     public function getParticipants() {
-        $applications = array_filter($this->getApplications()->toArray(), function($application) {
-            return $application->getStatus() === 'accepted';
+        return $this->getApplicationsByStatus('accepted');
+    }
+    public function getPendingApplications() {
+        return $this->getApplicationsByStatus('pending');
+    }
+
+    private function getApplicationsByStatus(string $status) {
+        $applications = array_filter($this->getApplications()->toArray(), function($application) use ($status) {
+            return $application->getStatus() === $status;
         });
         return array_map(function($application) {
             return $application->getUser();
@@ -101,6 +108,12 @@ class Event
         return $this;
     }
 
+    public function getParticipantsCount() {
+        return count($this->getParticipants());
+    }
+    public function getPendingApplicationsCount() {
+        return count($this->getPendingApplications());
+    }
     public function getApplicationsCount() {
         return count($this->getApplications());
     }

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes candidatures{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+
+<div class="container mx-auto my-16">
+    <h1 class="text-3xl font-bold mb-4">Mes candidatures</h1>
+    <section class="flex flex-col gap-4">
+        {% for application in app.user.applications %}
+            <div class="card w-full bg-base-100 shadow-2xl">
+                <div class="card-body flex flex-row items-center">
+                    <div class="flex flex-col flex-grow">
+                        <h2 class="card-title">{{ application.user }}</h2>
+                        <p>
+                            {{ application.text }}
+                        </p>
+                    </div>
+                    <div class="badge badge mr-2 {{ application.status == 'accepted' ? 'badge-success' : '' }}{{ application.status == 'rejected' ? 'badge-error' : '' }}">{{ application.statusText }}</div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}
